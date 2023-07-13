@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import AlertContext from '../context/alert/AlertContext';
 import ConfirmContext from '../context/confirm/ConfirmContext';
+import PromptContext from '../context/prompt/PromptContext';
 
 type ActionType = {
   action: 'browser' | 'custom';
@@ -29,14 +30,20 @@ const Home = () => {
     }
     if (action === 'custom') {
       const result = await confirmComp('are you sure?');
-      console.log('cusrom', result);
+      console.log('custom', result);
     }
   };
 
-  const onPromptClick = ({ action }: ActionType) => {
+  const { prompt: promptComp } = useContext(PromptContext);
+
+  const onPromptClick = async ({ action }: ActionType) => {
     if (action === 'browser') {
       const result = prompt('what is your name?');
-      console.log(result);
+      console.log('browser', result);
+    }
+    if (action === 'custom') {
+      const result = await promptComp('what is your name?');
+      console.log('custom', result);
     }
   };
 
@@ -59,6 +66,9 @@ const Home = () => {
         </button>
         <button onClick={() => onPromptClick({ action: 'browser' })}>
           prompt (browser)
+        </button>
+        <button onClick={() => onPromptClick({ action: 'custom' })}>
+          prompt (component)
         </button>
       </div>
     </main>
