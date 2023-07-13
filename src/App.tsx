@@ -1,16 +1,12 @@
 import './App.css';
+import AlertDialog from './components/alert/AlertDialog';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <main className="container">
-      <h1>Home</h1>
-      <p>Click the buttons below to see the dialogs</p>
-      <div className="buttons">
-        <button>alert</button>
-        <button>confirm</button>
-        <button>prompt</button>
-      </div>
-    </main>
+    <AlertDialog>
+      <Home />
+    </AlertDialog>
   );
 }
 

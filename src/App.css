@@ -1,14 +1,73 @@
-.container {
+.home {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .buttons {
+    width: 200px;
+  }
+
+  .buttons button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
-.buttons {
-  width: 200px;
-}
+.dialog-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 
-.buttons button {
-  width: 100%;
-  margin-bottom: 10px;
+  z-index: 100;
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+  }
+
+  .dialog {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    .title {
+      margin: 0 0 20px 0;
+    }
+
+    .text {
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      float: right;
+    }
+
+    .buttons button {
+      background-color: transparent;
+      color: #84d8ff;
+      border: 2px solid #84d8ff;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      font-weight: bold;
+    }
+
+    .buttons button:hover {
+      background-color: #84d8ff;
+      color: white;
+    }
+
+    .buttons button:focus {
+      border: 2px solid #00aeff;
+    }
+  }
 }
