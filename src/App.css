@@ -4,7 +4,7 @@
   align-items: center;
 
   .buttons {
-    width: 200px;
+    width: 300px;
   }
 
   .buttons button {
@@ -59,6 +59,7 @@
       text-transform: uppercase;
       transition: all 0.2s;
       font-weight: bold;
+      margin: 0 5px;
     }
 
     .buttons button:hover {

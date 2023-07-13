@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import AlertContext from '../context/alert/AlertContext';
+import ConfirmContext from '../context/confirm/ConfirmContext';
 
 type ActionType = {
   action: 'browser' | 'custom';
@@ -19,10 +20,16 @@ const Home = () => {
     }
   };
 
-  const onConfirmClick = ({ action }: ActionType) => {
+  const { confirm: confirmComp } = useContext(ConfirmContext);
+
+  const onConfirmClick = async ({ action }: ActionType) => {
     if (action === 'browser') {
       const result = confirm('are you sure?');
-      console.log(result);
+      console.log('browser', result);
+    }
+    if (action === 'custom') {
+      const result = await confirmComp('are you sure?');
+      console.log('cusrom', result);
     }
   };
 
@@ -46,6 +53,9 @@ const Home = () => {
         </button>
         <button onClick={() => onConfirmClick({ action: 'browser' })}>
           confirm (browser)
+        </button>
+        <button onClick={() => onConfirmClick({ action: 'custom' })}>
+          confirm (component)
         </button>
         <button onClick={() => onPromptClick({ action: 'browser' })}>
           prompt (browser)

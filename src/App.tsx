@@ -1,11 +1,14 @@
 import './App.css';
 import AlertDialog from './components/alert/AlertDialog';
+import ConfirmDialog from './components/confirm/ConfirmDialog';
 import Home from './pages/Home';
 
 function App() {
   return (
     <AlertDialog>
-      <Home />
+      <ConfirmDialog>
+        <Home />
+      </ConfirmDialog>
     </AlertDialog>
   );
 }
