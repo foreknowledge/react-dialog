@@ -1,7 +1,7 @@
 import './App.css';
 import AlertDialog from './components/alert/AlertDialog';
 import ConfirmDialog from './components/confirm/ConfirmDialog';
-import PromptDialog from './components/propt/PromptDialog';
+import PromptDialog from './components/prompt/PromptDialog';
 import Home from './pages/Home';
 
 function App() {
